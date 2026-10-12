@@ -73,8 +73,15 @@ int main() {
     int result = solution.kthLargest(root, cnt);
     std::cout << result << std::endl;
     
-    // Clean up memory (optional, as program is ending)
-    // In a real application, you'd want to properly delete the tree
+    // Clean up memory by deleting all tree nodes
+    std::function<void(TreeNode*)> deleteTree = [&](TreeNode* node) {
+        if (!node) return;
+        deleteTree(node->left);
+        deleteTree(node->right);
+        delete node;
+    };
+    
+    deleteTree(root);
     
     return 0;
 }
