@@ -2,6 +2,7 @@
 #include <vector>
 #include <algorithm>
 #include <queue>
+#include <functional>
 
 // Definition for a binary tree node
 struct TreeNode {
